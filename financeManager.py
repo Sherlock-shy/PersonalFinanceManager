@@ -2,7 +2,7 @@ import csv
 import gspread
 import time
 
-MONTH = 'may'
+MONTH = 'april'
 total = 0.0
 transactions = []
 
@@ -27,10 +27,18 @@ def lloydsFin(file, month):
             total += amount
 
             category = 'other'
-            if name == "NX BUS CONTACLESS":
+            if name == "NX BUS CONTACTLESS":
                 category = 'transport'
+            elif name == "http://taobao.com":
+                category = 'shopping'
+            elif name == "UBER* EATS":
+                category = 'food'
+            elif name == "BT GROUP PLC":
+                category = 'internet bills'
+            else:
+                category = 'other'
 
-            transaction = (date, name, amount, category)
+            transaction = (date, name, category, amount)
             transactions.append(transaction)
 
     return transactions, total
