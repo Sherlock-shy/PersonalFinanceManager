@@ -31,9 +31,9 @@ def lloydsFin(file, month):
                 category = 'transport'
             elif name == "http://taobao.com":
                 category = 'shopping'
-            elif name == "UBER* EATS":
+            elif "UBER" in name:
                 category = 'food'
-            elif name == "BT GROUP PLC":
+            elif "BT" in name:
                 category = 'internet bills'
             else:
                 category = 'other'
